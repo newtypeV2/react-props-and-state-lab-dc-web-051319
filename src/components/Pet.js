@@ -2,21 +2,22 @@ import React from 'react'
 
 class Pet extends React.Component {
 
-  constructor({pet}){
-    super()
-    this.state = {
-      isAdopted : pet.isAdopted
-    }
-  }
+  // constructor({pet}){
+  //   super()
+  //   this.state = {
+  //     isAdopted : pet.isAdopted
+  //   }
+  // }
 
   adoptHandler = (e) => {
     this.props.onAdoptPet(this.props.pet.id)
-    this.setState({
-      isAdopted : true
-    })
+    // this.setState({
+    //   isAdopted : true
+    // })
   }
 
   render() {
+    console.log(this.props.pet.isAdopted)
     return (
       <div className="card">
         <div className="content">
@@ -30,14 +31,14 @@ class Pet extends React.Component {
           </div>
           <div className="description">
             <p>Age: {this.props.pet.age}</p>
-            <p>Weight: {this.props.pet.weight}}</p>
+            <p>Weight: {this.props.pet.weight}</p>
           </div>
         </div>
         {/* <div className="extra content">
           <button className="ui disabled button">Already adopted</button>
           <button className="ui primary button" onClick={this.adoptHandler}>Adopt pet</button>
         </div> */}
-        { this.state.isAdopted ?
+        { this.props.pet.isAdopted ?
         <div className="extra content">
          <button className="ui disabled button">Already adopted</button>
         </div> 
